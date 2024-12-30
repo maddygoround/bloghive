@@ -1,5 +1,6 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
+from tools.scraper import ScrapURLs
 
 @CrewBase
 class BlogPostWriter:
@@ -9,7 +10,7 @@ class BlogPostWriter:
 
     def __init__(self):
         self.llm = LLM(
-            model="ollama/llama3.2",
+            model="ollama/llama3.3",
             base_url="http://localhost:11434"
         )
 
@@ -19,7 +20,8 @@ class BlogPostWriter:
             config=self.agents_config["research_agent"],
             verbose=True,
             allow_delegation=False,
-            llm=self.llm
+            llm=self.llm,
+            tools=[ScrapURLs()]
         )
 
     @agent

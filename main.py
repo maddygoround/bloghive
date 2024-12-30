@@ -17,8 +17,10 @@ def run():
             "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/burnout/art-20046642",
         ],
     }
-    result = BlogPostWriter().crew().kickoff(inputs=inputs)
-    print(result)
+
+    print("Running BlogPostWriter...", inputs)
+    # result = BlogPostWriter().crew().kickoff(inputs=inputs)
+    # print(result)
 
 
 if __name__ == "__main__":

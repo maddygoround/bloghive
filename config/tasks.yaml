@@ -1,91 +1,144 @@
 research_agent_task:
   description: >
-    Research the topic: {topic}
-       1. Compile research using the following resources:
-                 - Provided URLs: {additional_urls}
-                 - Serper API search results
-       2. Use the compile_research tool to gather and structure all information
-       3. Ensure all sources are properly documented
-       4. Look for statistics, expert opinions, and current trends
+    Research the topic: {topic} comprehensively and methodically:
+       1. Gather and analyze information from multiple sources:
+          - Deep dive into provided URLs: {additional_urls}
+          - Access authoritative industry databases and reports
+          - Identify recent scholarly articles and expert analyses
+       2. Implement systematic information gathering:
+          - Use compile_research tool to structure findings
+          - Create detailed source annotations
+          - Track information chronology and relevance
+       3. Validate and cross-reference all information:
+          - Verify statistics and claims across multiple sources
+          - Document contradicting viewpoints
+          - Assess source authority and potential biases
+       4. Focus on high-value content:
+          - Latest industry statistics and growth metrics
+          - Expert predictions and market analyses
+          - Emerging trends and technological developments
+          - Case studies and real-world applications
   expected_output: >
     1. Research Summary:
-           - Comprehensive overview of the topic
-           - Key findings and main points
-           - List of relevant statistics with sources
-           - Notable expert quotes and opinions
-           - Current trends in the field
+           - Executive summary of key findings (250-300 words)
+           - Hierarchical breakdown of main topics and subtopics
+           - Comparative analysis of different viewpoints
+           - Statistical dashboard with verified data points
+           - Timeline of industry developments
+           - Future trends and predictions
 
     2. Source Documentation:
-           - List of used search results with URLs
-           - Analysis of provided URLs with key information
-           - Credibility assessment of sources
+           - Annotated bibliography with credibility scores
+           - Source categorization (primary/secondary)
+           - Expert profile summary for quoted authorities
+           - Methodology notes for statistical data
+           - Gap analysis of missing information
 
-    3. Raw Data:
-           - Compiled search results
-           - Scraped content from URLs
-           - Any additional relevant data found
+    3. Raw Data Repository:
+           - Structured database of search results
+           - Tagged and categorized URL content
+           - Statistical datasets with metadata
+           - Expert quotes database with context
+           - Visual assets inventory
   agent: research_agent
 
 content_analyzer_agent_task:
   description: >
-    Analyze the research findings for {topic}:
-        1. Review all compiled research from both search results and provided URLs
-        2. Identify key themes and insights
-        3. Organize information into logical sections
-        4. Highlight unique angles and valuable insights
-        5. Suggest a content structure for the blog post
+    Analyze and structure research findings for {topic}:
+        1. Conduct multi-level content analysis:
+           - Perform quantitative data review
+           - Identify qualitative insights
+           - Map content patterns and themes
+           - Evaluate audience relevance
+        2. Develop content architecture:
+           - Create topic hierarchy
+           - Map information flow
+           - Identify content pillars
+           - Plan narrative structure
+        3. Optimize for engagement:
+           - Identify hook points
+           - Map user journey
+           - Plan content depth
+           - Structure progressive disclosure
+        4. Integrate SEO strategy:
+           - Analyze keyword opportunities
+           - Plan semantic clusters
+           - Map internal linking structure
+           - Optimize for featured snippets
 
   expected_output: >
-    1. Content Analysis:
-           - List of main themes identified
-           - Unique insights and perspectives
-           - Target audience identification
-           - Content gaps or areas needing more research
+    1. Strategic Analysis:
+           - Content opportunity matrix
+           - Audience persona mapping
+           - Competitive gap analysis
+           - Content differentiation strategy
+           - Engagement potential assessment
 
-    2. Blog Structure:
-           - 3-5 suggested blog titles
-           - Detailed outline including:
-             * Introduction points
-             * Main section headings
-             * Key points for each section
-             * Supporting data placement
-             * Conclusion elements
+    2. Content Framework:
+           - A/B testing title variations (5-7 options)
+           - Detailed content outline:
+             * Hook and value proposition
+             * Information architecture
+             * Supporting evidence placement
+             * Narrative flow mapping
+             * Engagement touchpoints
+             * Call-to-action strategy
 
-    3. SEO Recommendations:
-           - Primary and secondary keywords
-           - Meta description suggestions
-           - Content optimization tips
+    3. SEO Blueprint:
+           - Keyword clustering map
+           - SERP opportunity analysis
+           - Featured snippet optimization plan
+           - Internal linking strategy
+           - Rich results potential
   agent: content_analyzer_agent
-
 
 writer_agent_task:
   description: >
-    Write a comprehensive blog post about {topic}:
-        1. Use the analyzed research and suggested structure
-        2. Create an engaging introduction
-        3. Develop clear and informative body sections
-        4. Write a strong conclusion
-        5. Include relevant examples and data points from both search results and provided URLs
-        6. Optimize for SEO while maintaining readability
-    Create a well-structured, engaging blog post that incorporates insights from all sources.
+    Craft an authoritative blog post about {topic}:
+        1. Strategic content development:
+           - Implement hook-based introduction
+           - Develop narrative momentum
+           - Create seamless transitions
+           - Maintain consistent voice
+        2. Technical optimization:
+           - Implement semantic SEO
+           - Optimize readability scores
+           - Structure content hierarchy
+           - Balance keyword density
+        3. Engagement optimization:
+           - Incorporate storytelling elements
+           - Develop compelling examples
+           - Create memorable analogies
+           - Build emotional connection
+        4. Quality assurance:
+           - Verify factual accuracy
+           - Maintain logical flow
+           - Ensure source attribution
+           - Polish language and style
+    
   expected_output: >
-    1. Blog Post Elements:
-           - Final title
-           - Meta description
-           - Introduction
-           - Main body sections with headers
-           - Conclusion
-           - Citations and sources
+    1. Content Deliverables:
+           - SEO-optimized title
+           - Compelling meta description
+           - Structured introduction with hook
+           - Hierarchical body content
+           - Actionable conclusion
+           - Strategic CTAs
+           - Complete source citations
         
-    2. SEO Information:
-           - Primary keyword usage
-           - Secondary keywords used
-           - Internal linking suggestions
+    2. Technical Documentation:
+           - Keyword density analysis
+           - Readability metrics
+           - Header structure map
+           - Internal linking blueprint
+           - Rich snippet markup
         
-    3. Additional Information:
-           - Word count
-           - Estimated reading time
-           - Target audience
-           - Key takeaways
+    3. Performance Metrics:
+           - Content uniqueness score
+           - Engagement potential rating
+           - Word count distribution
+           - Reading level assessment
+           - Mobile optimization check
+           - Social sharing potential
   agent: writer_agent
   context: [research_agent_task, content_analyzer_agent_task]

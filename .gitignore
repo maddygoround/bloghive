@@ -1,0 +1,5 @@
+# Ignore Python executables
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
