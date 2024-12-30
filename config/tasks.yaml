@@ -1,0 +1,91 @@
+research_agent_task:
+  description: >
+    Research the topic: {topic}
+       1. Compile research using the following resources:
+                 - Provided URLs: {additional_urls}
+                 - Serper API search results
+       2. Use the compile_research tool to gather and structure all information
+       3. Ensure all sources are properly documented
+       4. Look for statistics, expert opinions, and current trends
+  expected_output: >
+    1. Research Summary:
+           - Comprehensive overview of the topic
+           - Key findings and main points
+           - List of relevant statistics with sources
+           - Notable expert quotes and opinions
+           - Current trends in the field
+
+    2. Source Documentation:
+           - List of used search results with URLs
+           - Analysis of provided URLs with key information
+           - Credibility assessment of sources
+
+    3. Raw Data:
+           - Compiled search results
+           - Scraped content from URLs
+           - Any additional relevant data found
+  agent: research_agent
+
+content_analyzer_agent_task:
+  description: >
+    Analyze the research findings for {topic}:
+        1. Review all compiled research from both search results and provided URLs
+        2. Identify key themes and insights
+        3. Organize information into logical sections
+        4. Highlight unique angles and valuable insights
+        5. Suggest a content structure for the blog post
+
+  expected_output: >
+    1. Content Analysis:
+           - List of main themes identified
+           - Unique insights and perspectives
+           - Target audience identification
+           - Content gaps or areas needing more research
+
+    2. Blog Structure:
+           - 3-5 suggested blog titles
+           - Detailed outline including:
+             * Introduction points
+             * Main section headings
+             * Key points for each section
+             * Supporting data placement
+             * Conclusion elements
+
+    3. SEO Recommendations:
+           - Primary and secondary keywords
+           - Meta description suggestions
+           - Content optimization tips
+  agent: content_analyzer_agent
+
+
+writer_agent_task:
+  description: >
+    Write a comprehensive blog post about {topic}:
+        1. Use the analyzed research and suggested structure
+        2. Create an engaging introduction
+        3. Develop clear and informative body sections
+        4. Write a strong conclusion
+        5. Include relevant examples and data points from both search results and provided URLs
+        6. Optimize for SEO while maintaining readability
+    Create a well-structured, engaging blog post that incorporates insights from all sources.
+  expected_output: >
+    1. Blog Post Elements:
+           - Final title
+           - Meta description
+           - Introduction
+           - Main body sections with headers
+           - Conclusion
+           - Citations and sources
+        
+    2. SEO Information:
+           - Primary keyword usage
+           - Secondary keywords used
+           - Internal linking suggestions
+        
+    3. Additional Information:
+           - Word count
+           - Estimated reading time
+           - Target audience
+           - Key takeaways
+  agent: writer_agent
+  context: [research_agent_task, content_analyzer_agent_task]
