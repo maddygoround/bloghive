@@ -48,7 +48,25 @@ class ScrapURLs(BaseTool):
         topic: str,
         additional_urls: list[str]
     ) -> str:
-        """Compile research from multiple URLs and search results"""
+        """
+        Compile research from multiple URLs and search results.
+        
+        This tool is designed to aggregate and synthesize information from various online sources.
+        It takes a list of URLs and search queries, fetches the content, and processes it to extract
+        relevant data. The goal is to provide a comprehensive and cohesive summary of the topic at hand,
+        enabling the creation of well-informed and insightful blog posts or articles.
+        
+        Key Features:
+        - Fetches content from a list of provided URLs.
+        - Performs web searches to gather additional information.
+        - Extracts and processes relevant data from the fetched content.
+        - Summarizes the compiled research into a cohesive format.
+        
+        Usage:
+        - Provide a list of URLs and/or search queries.
+        - Run the scraper to compile and process the research.
+        - Use the summarized data for content creation or further analysis.
+        """
         try:
             print("Scraping URLs...", additional_urls)
             research_data = []
